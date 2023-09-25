@@ -7,7 +7,6 @@ import com.lantu.sys.mapper.UserMapper;
 import com.lantu.sys.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.PassThroughExceptionTranslationStrategy;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -30,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, User> redisTemplate;
     @Autowired
     private PasswordEncoder passwordEncoder;
     /*@Override
